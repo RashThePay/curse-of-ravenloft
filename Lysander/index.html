@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#182a38">
+  <title>Lysander — Session Sheet</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+    :root{--ink:#13232d;--muted:#68787c;--paper:#f7f1df;--cream:#fffaf0;--teal:#087f7b;--teal2:#0aa69d;--gold:#e7a62d;--pink:#d73d77;--indigo:#253765;--line:rgba(26,51,57,.13);--shadow:0 18px 60px rgba(13,39,46,.16);--radius:22px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#e7dfcc;color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;background-image:radial-gradient(circle at 12% 8%,rgba(231,166,45,.18),transparent 30%),radial-gradient(circle at 90% 25%,rgba(8,127,123,.16),transparent 28%)}
+    button,input,textarea{font:inherit}button{color:inherit}.app{max-width:1500px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:var(--shadow)}
+    .hero{position:relative;min-height:410px;display:grid;grid-template-columns:minmax(360px,42%) 1fr;overflow:hidden;background:linear-gradient(120deg,#122d39,#174e54 60%,#096e6d);color:white}
+    .portrait{position:absolute;inset:0 auto 0 0;width:46%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(1.08) contrast(1.02)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 15%,rgba(18,45,57,.12) 31%,#153b44 48%,rgba(15,87,83,.7)),linear-gradient(0deg,rgba(8,33,42,.7),transparent 45%)}
+    .hero-copy{grid-column:2;position:relative;z-index:1;padding:48px 54px 42px}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.76rem;color:#ffd97d;font-weight:700}.hero h1{font:700 clamp(3.4rem,7vw,6.5rem)/.9 "Fraunces",serif;margin:13px 0 10px;letter-spacing:-.055em}.subtitle{font-size:1.05rem;color:#dcebea;margin-bottom:28px}.quickfacts{display:flex;gap:9px;flex-wrap:wrap}.chip{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.17);backdrop-filter:blur(10px);font-size:.8rem}.motto{max-width:650px;margin:26px 0 0;padding-left:17px;border-left:3px solid var(--gold);color:#f5eedb;font-family:"Fraunces",serif;font-size:1.1rem;line-height:1.5}
+    .toolbar{position:sticky;top:0;z-index:20;background:rgba(247,241,223,.91);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:10px 28px}.toolbar b{font-family:"Fraunces",serif;margin-right:auto}.toolbtn,.restbtn{border:1px solid var(--line);background:#fffaf0;border-radius:999px;padding:8px 13px;font-weight:700;font-size:.78rem;cursor:pointer}.toolbtn:hover,.restbtn:hover{border-color:var(--teal);color:var(--teal)}.save-state{font-size:.72rem;color:var(--muted)}
+    main{padding:28px;display:grid;grid-template-columns:300px minmax(430px,1fr) 360px;gap:22px;align-items:start}.stack{display:grid;gap:18px}.card{background:rgba(255,250,240,.9);border:1px solid rgba(30,65,65,.12);border-radius:var(--radius);box-shadow:0 7px 24px rgba(31,55,53,.055);overflow:hidden}.card-pad{padding:20px}.card h2{font:700 1.15rem "Fraunces",serif;margin:0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:var(--teal);font-weight:800}
+    .vitals{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.vital{text-align:center;padding:13px 7px;border-radius:15px;background:#f0ead8;border:1px solid rgba(31,61,60,.08)}.vital .n{font:700 1.7rem "Fraunces",serif}.vital .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}.hpbox{margin-top:12px;padding:17px;background:linear-gradient(135deg,#203568,#812d62);border-radius:17px;color:white}.hp-line{display:flex;align-items:center;justify-content:space-between}.hp-num{font:700 2.55rem "Fraunces",serif}.hp-controls{display:flex;gap:6px}.round{width:34px;height:34px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;border-radius:50%;font-size:1.2rem;cursor:pointer}.hpbar{height:7px;border-radius:8px;background:rgba(255,255,255,.18);overflow:hidden;margin:10px 0 8px}.hpfill{height:100%;background:linear-gradient(90deg,#ffca58,#f5f2a9);transition:width .25s}.temp-row{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:#f4deed}.tiny-input{width:54px;text-align:center;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:white;border-radius:8px;padding:5px}
+    .abilities{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ability{text-align:center;padding:10px 4px;border:1px solid var(--line);border-radius:14px;background:#fffdf6}.ability strong{display:block;font:700 1.45rem "Fraunces",serif;color:var(--indigo)}.ability small{font-weight:800;font-size:.61rem;letter-spacing:.1em;color:var(--muted)}.ability span{display:block;font-size:.68rem;color:var(--muted)}
+    .skill-list{display:grid;gap:3px}.skill{display:grid;grid-template-columns:15px 1fr 32px;align-items:center;padding:5px 7px;border-radius:8px;font-size:.76rem}.skill:nth-child(odd){background:rgba(8,127,123,.045)}.dot{width:8px;height:8px;border:1.5px solid var(--teal);border-radius:50%}.dot.p{background:var(--teal)}.dot.e{background:var(--pink);border-color:var(--pink);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--pink)}.skill em{font-style:normal;color:#9a9e94;font-size:.64rem}.skill b{text-align:right}.legend{font-size:.63rem;color:var(--muted);margin-top:10px}
+    .resources{display:grid;gap:12px}.resource{border-bottom:1px solid var(--line);padding-bottom:11px}.resource:last-child{border:0;padding-bottom:0}.resource-top{display:flex;justify-content:space-between;font-size:.79rem;margin-bottom:8px}.pips{display:flex;gap:7px;flex-wrap:wrap}.pip{width:29px;height:29px;border-radius:50%;border:2px solid var(--teal);background:transparent;cursor:pointer;position:relative}.pip.on{background:var(--teal);box-shadow:inset 0 0 0 4px var(--cream)}.pip.gold{border-color:var(--gold)}.pip.gold.on{background:var(--gold)}.pip.pink{border-color:var(--pink)}.pip.pink.on{background:var(--pink)}.rests{display:flex;gap:8px;margin-top:16px}.restbtn{flex:1;background:#edf6f2}.recovery{font-size:.65rem;color:var(--muted);margin-top:4px}
+    .action-list{display:grid;gap:10px}.action{padding:14px;border:1px solid var(--line);border-radius:15px;background:#fffdf7}.action-top{display:flex;align-items:center;gap:8px}.badge{font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;padding:5px 7px;border-radius:6px;background:#e4f2ee;color:#08726e}.badge.bonus{background:#fff0cd;color:#8a5b00}.badge.react{background:#f6ddec;color:#98295b}.action h3{font-size:.9rem;margin:0}.action p{font-size:.72rem;color:#5c696b;line-height:1.5;margin:8px 0 0}.formula{font-weight:800;color:var(--ink)}
+    .tabs{display:flex;gap:6px;padding:7px;background:#e9e4d4;border-radius:14px;margin-bottom:14px}.tab{flex:1;border:0;background:transparent;padding:8px;border-radius:10px;font-size:.72rem;font-weight:800;cursor:pointer}.tab.active{background:#fff;box-shadow:0 2px 9px rgba(29,52,51,.1);color:var(--teal)}.tabpane{display:none}.tabpane.active{display:block}.spell-grid{display:grid;gap:10px}.spell{position:relative;border:1px solid var(--line);border-radius:16px;background:#fffdf7;padding:14px 15px;cursor:pointer}.spell:hover{border-color:rgba(8,127,123,.5);transform:translateY(-1px)}.spell-head{display:flex;justify-content:space-between;gap:10px}.spell h3{font:700 .98rem "Fraunces",serif;margin:0}.spell-level{font-size:.61rem;text-transform:uppercase;letter-spacing:.1em;color:var(--pink);font-weight:800}.spell-meta{font-size:.66rem;color:var(--muted);margin-top:4px}.spell p{font-size:.73rem;line-height:1.52;margin:10px 0 0}.concentration:after{content:"C";display:inline-grid;place-items:center;margin-left:6px;width:18px;height:18px;border-radius:50%;background:var(--gold);color:#fff;font-size:.62rem;font-weight:800}.cast-btn{margin-top:10px;border:0;border-radius:8px;background:#e6f3ef;color:#08746f;padding:6px 9px;font-size:.66rem;font-weight:800;cursor:pointer}.cast-btn:disabled{opacity:.4;cursor:not-allowed}
+    details{border-top:1px solid var(--line)}details:first-of-type{border-top:0}summary{cursor:pointer;list-style:none;padding:13px 0;font-weight:700;font-size:.82rem;display:flex;justify-content:space-between}summary:after{content:"＋";color:var(--teal)}details[open] summary:after{content:"−"}details p,details li{font-size:.72rem;line-height:1.55;color:#596769}.feature-tag{font-size:.6rem;color:var(--pink);text-transform:uppercase;letter-spacing:.08em}
+    .tale-result{min-height:134px;border:1px dashed rgba(215,61,119,.45);border-radius:16px;background:linear-gradient(135deg,rgba(215,61,119,.07),rgba(37,55,101,.08));padding:15px}.tale-result .roll{font:700 2rem "Fraunces",serif;color:var(--pink);float:right;margin-left:10px}.tale-result h3{font:700 .95rem "Fraunces",serif;margin:0 0 6px}.tale-result p{font-size:.72rem;line-height:1.5;margin:0;color:#586566}.tale-controls{display:flex;gap:7px;margin-top:10px}.primary{border:0;border-radius:10px;background:var(--pink);color:white;padding:9px 12px;font-size:.72rem;font-weight:800;cursor:pointer}.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;font-size:.72rem;font-weight:800;cursor:pointer}.held{font-size:.65rem;color:var(--muted);margin-top:8px}
+    .condition-grid{display:flex;gap:6px;flex-wrap:wrap}.condition{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 9px;font-size:.64rem;font-weight:700;cursor:pointer}.condition.active{background:var(--pink);color:#fff;border-color:var(--pink)}.death{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:.73rem}.death .pips{gap:4px}.death .pip{width:21px;height:21px}.success{border-color:var(--teal)!important}.success.on{background:var(--teal)!important}.fail{border-color:var(--pink)!important}.fail.on{background:var(--pink)!important}
+    textarea{width:100%;min-height:150px;resize:vertical;border:1px solid var(--line);background:repeating-linear-gradient(#fffdf7,#fffdf7 27px,#e9e3d5 28px);border-radius:14px;padding:10px 12px;line-height:28px;color:var(--ink);outline:none}textarea:focus{border-color:var(--teal)}.inventory{display:grid;gap:7px}.item{display:flex;gap:8px;justify-content:space-between;font-size:.74rem;border-bottom:1px dotted var(--line);padding-bottom:6px}.item span:last-child{color:var(--muted)}
+    .toast{position:fixed;left:50%;bottom:25px;translate:-50% 20px;opacity:0;z-index:50;background:#132f37;color:white;border-radius:999px;padding:10px 16px;font-size:.75rem;box-shadow:var(--shadow);pointer-events:none;transition:.22s}.toast.show{opacity:1;translate:-50% 0}.print-only{display:none}
+    @media(max-width:1150px){main{grid-template-columns:280px 1fr}.right{grid-column:1/-1;grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:45% 1fr}.portrait{width:52%}.hero-copy{padding-right:28px}}
+    @media(max-width:760px){.hero{min-height:570px;display:block}.portrait{width:100%;height:100%;object-position:center 25%}.hero:after{background:linear-gradient(0deg,#12353e 10%,rgba(18,53,62,.86) 42%,transparent 75%)}.hero-copy{position:absolute;bottom:0;padding:24px}.hero h1{font-size:3.7rem}.motto{font-size:.95rem}.toolbar{padding:8px 12px}.save-state,.toolbar b{display:none}main{padding:12px;grid-template-columns:1fr}.right{grid-column:auto;grid-template-columns:1fr}.vitals{grid-template-columns:repeat(3,1fr)}}
+    @media print{body{background:white}.app{box-shadow:none}.hero{min-height:245px}.portrait{width:42%}.hero-copy{padding:28px}.toolbar,.hp-controls,.rests,.cast-btn,.tale-controls,.toast{display:none!important}main{padding:14px;grid-template-columns:27% 43% 30%;gap:10px}.card{box-shadow:none;border-radius:10px;break-inside:avoid}.card-pad{padding:12px}.right{grid-column:auto;display:grid}.spell p,details p,.action p{font-size:8pt}.print-only{display:block}}
+  </style>
+  <style id="character-sheet-treatment">
+    /* A tactile character-sheet treatment: ink, parchment, ruled fields, quiet controls. */
+    :root{--paper:#f3ead2;--cream:#faf4e3;--ink:#252a2a;--muted:#6d6a5f;--line:rgba(62,55,42,.24);--teal:#176f6b;--pink:#a92f5b;--indigo:#313d61;--gold:#b98221;--radius:4px}
+    body{padding:28px;background:#202b2c;background-image:radial-gradient(circle at 50% 0,rgba(198,154,74,.12),transparent 38%),linear-gradient(90deg,rgba(0,0,0,.12),transparent 20%,transparent 80%,rgba(0,0,0,.12))}
+    .app{max-width:1320px;position:relative;border:1px solid #b99b65;box-shadow:0 25px 80px rgba(0,0,0,.42),inset 0 0 70px rgba(119,83,27,.08);background-color:var(--paper);background-image:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,0)),repeating-linear-gradient(0deg,rgba(94,69,32,.018),rgba(94,69,32,.018) 1px,transparent 1px,transparent 4px)}
+    .app:before,.app:after{content:"✦";position:absolute;z-index:30;color:var(--gold);font-size:18px;top:13px}.app:before{left:16px}.app:after{right:16px}
+    .hero{min-height:310px;grid-template-columns:1fr 340px;background:transparent;color:var(--ink);border-bottom:3px double rgba(73,65,47,.5);margin:0 26px;overflow:visible}
+    .hero:before{content:"";position:absolute;inset:12px 0;border-top:1px solid rgba(90,74,43,.25);border-bottom:1px solid rgba(90,74,43,.25);pointer-events:none}
+    .hero:after{content:"";inset:0;background:radial-gradient(circle at 19% 35%,rgba(231,166,45,.17),transparent 28%),radial-gradient(circle at 74% 55%,rgba(8,127,123,.09),transparent 34%);z-index:0}
+    .portrait{position:absolute;left:auto;right:24px;top:27px;width:252px;height:252px;object-position:center 32%;border-radius:50%;border:8px solid #eee2c5;outline:1px solid #8e7548;box-shadow:0 0 0 5px rgba(185,130,33,.14),0 12px 30px rgba(67,52,27,.2);filter:saturate(.92) contrast(1.02)}
+    .hero-copy{grid-column:1;z-index:2;padding:64px 32px 40px 54px;max-width:790px}.eyebrow{color:var(--teal);font-size:.68rem}.hero h1{font-size:clamp(4.2rem,7vw,6.8rem);color:#243137;margin:8px 0 7px;text-shadow:0 1px #fff;letter-spacing:-.045em}.subtitle{color:#6c5d45;margin-bottom:18px;font-family:"Fraunces",serif;font-size:1.12rem}.quickfacts{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);width:max-content;max-width:100%}.chip{border:0;border-right:1px solid var(--line);background:transparent;border-radius:0;padding:7px 11px;color:#4f514c;font-size:.72rem}.chip:first-child{padding-left:0}.chip:last-child{border-right:0}.motto{color:#5f5a4f;font-size:.96rem;max-width:560px;margin-top:18px;border-color:var(--gold)}
+    .toolbar{position:relative;top:auto;background:transparent;backdrop-filter:none;border-bottom:1px solid rgba(82,69,43,.18);padding:8px 37px;color:var(--muted)}.toolbar b{font-weight:600;font-style:italic;font-size:.82rem}.toolbtn,.restbtn{background:transparent;border-color:rgba(78,66,44,.3);border-radius:3px;padding:6px 10px}.toolbtn:hover,.restbtn:hover{background:rgba(255,255,255,.25)}
+    main{padding:24px 36px 38px;grid-template-columns:270px minmax(390px,1fr) 315px;gap:20px;background:transparent}.stack{gap:16px}
+    .card{background:rgba(250,244,227,.44);box-shadow:none;border:1px solid rgba(67,59,43,.3);border-radius:4px;position:relative}.card:before{content:"";position:absolute;inset:3px;border:1px solid rgba(118,92,46,.1);pointer-events:none}.card-pad{padding:17px}.card h2{font-size:1.08rem;letter-spacing:.025em}.section-head{padding-bottom:8px;margin-bottom:12px;border-bottom:2px solid rgba(49,61,97,.55);position:relative}.section-head:after{content:"◆";position:absolute;right:0;bottom:-8px;background:var(--paper);padding-left:6px;color:var(--gold);font-size:.68rem}.kicker{font-size:.58rem;color:var(--pink);letter-spacing:.19em}
+    .vital{border:0;border-right:1px solid var(--line);border-radius:0;background:transparent;padding:9px 4px}.vital:last-child{border:0}.vital .n{font-size:1.55rem}.hpbox{border-radius:3px;background:rgba(49,61,97,.92);box-shadow:inset 0 0 18px rgba(0,0,0,.15)}.round{border-radius:3px}.abilities{gap:0;border:1px solid var(--line)}.ability{border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:rgba(255,255,255,.2)}.ability:nth-child(3n){border-right:0}.ability:nth-child(n+4){border-bottom:0}.skill{border-radius:0}.skill:nth-child(odd){background:rgba(23,111,107,.04)}
+    .resource{border-bottom-style:dotted}.pip{border-radius:50%;background:rgba(255,255,255,.28)}.rests{border-top:1px solid var(--line);padding-top:12px}.action{border-radius:2px;background:rgba(255,255,255,.2);border-left:3px solid var(--teal);padding:11px 12px}.badge{border-radius:2px}.tabs{display:none}.tabpane,.tabpane.active{display:block!important}.tabpane+.tabpane{margin-top:20px;padding-top:17px;border-top:3px double rgba(73,65,47,.35)}.tabpane:before{display:block;font:700 .92rem "Fraunces",serif;color:var(--indigo);margin-bottom:10px;text-transform:uppercase;letter-spacing:.09em}.tabpane#combat:before{content:"Combat actions"}.tabpane#spells:before{content:"Spellbook"}.tabpane#features:before{content:"Traits & features"}
+    .spell{border-radius:2px;background:rgba(255,255,255,.2);padding:11px 12px;cursor:default;border-left:3px solid var(--gold)}.spell:hover{transform:none}.cast-btn{border:1px solid rgba(23,111,107,.35);background:transparent;border-radius:2px}.tale-result,textarea{border-radius:2px;background-color:rgba(255,255,255,.18)}.primary,.secondary{border-radius:2px}.condition{border-radius:2px;background:transparent}.inventory .item{padding-left:4px}
+    @media(max-width:1150px){.hero{grid-template-columns:1fr 290px}.portrait{width:225px;height:225px}.hero-copy{padding-left:30px}main{grid-template-columns:250px 1fr}.right{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){body{padding:0}.app{border:0}.hero{height:510px;min-height:510px;margin:0 12px;display:block}.portrait{top:25px;left:50%;right:auto;translate:-50% 0;width:235px;height:235px}.hero:after{background:linear-gradient(0deg,var(--paper) 0%,rgba(243,234,210,.96) 46%,transparent 66%)}.hero-copy{position:absolute;inset:auto 0 0;text-align:center;padding:20px}.hero h1{font-size:3.8rem}.quickfacts{margin:auto;justify-content:center}.motto{margin:15px auto 0;text-align:left}.toolbar{padding:8px 14px}main{padding:14px;grid-template-columns:1fr}.right{grid-template-columns:1fr}}
+    .action-columns{display:grid;grid-template-columns:1fr 1fr;gap:9px}.action-columns .action{min-height:104px}.compact-actions .action{padding-top:10px;padding-bottom:10px}
+    .spellcasting-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-bottom:10px}.casting-stat{text-align:center;padding:10px 5px;border-right:1px solid var(--line);background:rgba(255,255,255,.18)}.casting-stat:last-child{border-right:0}.casting-stat span,.casting-stat small{display:block;color:var(--muted);font-size:.57rem;text-transform:uppercase;letter-spacing:.08em}.casting-stat strong{display:block;font:700 1.45rem "Fraunces",serif;color:var(--indigo);margin:2px 0}.casting-stat small{text-transform:none;letter-spacing:0}
+    .casting-notes{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;margin:0 0 14px;padding:8px 10px;border-top:1px dotted var(--line);border-bottom:1px dotted var(--line);font-size:.65rem;color:var(--muted)}.casting-notes span{padding:3px 0}.casting-notes b{color:var(--ink);margin-right:4px}
+    .original-actions{display:none}.save-list{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.save-row{display:flex;align-items:center;justify-content:space-between;padding:8px;border-bottom:1px solid var(--line);font-size:.72rem;background:rgba(255,255,255,.13)}.save-row:nth-child(odd){border-right:1px solid var(--line)}.save-row:nth-last-child(-n+2){border-bottom:0}.save-row span{display:flex;align-items:center;gap:6px}.save-row i{display:inline-block;width:8px;height:8px;border:1px solid var(--teal);border-radius:50%}.save-row.proficient i{background:var(--teal);box-shadow:inset 0 0 0 1px var(--paper)}.save-row small{font-size:.47rem;letter-spacing:.08em;color:var(--teal);font-weight:800}.save-row strong{font:700 1rem "Fraunces",serif;color:var(--indigo)}.advantage-note{margin-top:10px;padding:10px;border-left:3px solid var(--gold);background:rgba(185,130,33,.08)}.advantage-note b,.advantage-note span{display:block}.advantage-note b{font:700 .78rem "Fraunces",serif;color:var(--indigo)}.advantage-note span{font-size:.65rem;line-height:1.45;color:var(--muted);margin-top:3px}.distributed-actions .action{min-height:0}
+    /* Combat and features now have their own concise sheet sections. */
+    #combat,.tabs{display:none!important}#spells,#features{display:block!important;margin:0;padding:0;border:0}#spells:before,#features:before{display:none}
+    @media(max-width:760px){.action-columns,.spellcasting-stats{grid-template-columns:1fr 1fr}.casting-stat:nth-child(2){border-right:0}.casting-stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.casting-notes{grid-template-columns:1fr}}
+    @media print{body{padding:0;background:white}.app{border:0}.app:before,.app:after{display:none}.hero{min-height:250px;margin:0 15px;grid-template-columns:1fr 240px}.portrait{width:190px;height:190px}.hero-copy{padding:42px 20px}.hero h1{font-size:4.5rem}main{padding:12px 15px;grid-template-columns:25% 45% 30%;gap:7px}.card-pad{padding:9px}.tabpane+.tabpane{margin-top:10px;padding-top:8px}.right{display:grid;grid-template-columns:1fr}.action,.spell{padding:7px}.section-head{margin-bottom:7px}.motto{display:none}.action-columns .action{min-height:0}.spellcasting-stats{grid-template-columns:repeat(4,1fr)}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <img class="portrait" src="Lysander.png" alt="Lysander, a smiling satyr bard playing a lute">
+    <div class="hero-copy">
+      <div class="eyebrow">College of Spirits · Level 3</div>
+      <h1>Lysander</h1>
+      <div class="subtitle">Satyr Bard · Entertainer · Medium Fey</div>
+      <div class="quickfacts"><span class="chip">35 ft speed</span><span class="chip">PB +2</span><span class="chip">Spell DC 13</span><span class="chip">Spell attack +5</span><span class="chip">Passive Perception 11</span></div>
+      <p class="motto">Every room has a story. Some of its storytellers just happen to be dead.</p>
+    </div>
+  </header>
+  <nav class="toolbar"><b>Lysander’s traveling folio</b><span class="save-state" id="saveState">Saved locally</span><button class="toolbtn" onclick="window.print()">Print</button><button class="toolbtn" id="resetBtn">Reset session</button></nav>
+  <main>
+    <aside class="stack">
+      <section class="card card-pad">
+        <div class="section-head"><div><div class="kicker">At a glance</div><h2>Combat</h2></div></div>
+        <div class="vitals"><div class="vital"><div class="n">13</div><div class="l">Armor</div></div><div class="vital"><div class="n">+3</div><div class="l">Initiative</div></div><div class="vital"><div class="n">35′</div><div class="l">Speed</div></div></div>
+        <div class="hpbox"><div class="hp-line"><div><div class="kicker" style="color:#ffd977">Hit points</div><div><span class="hp-num" id="hp">18</span><span style="opacity:.65"> / 18</span></div></div><div class="hp-controls"><button class="round" data-hp="-1" aria-label="Lose one hit point">−</button><button class="round" data-hp="1" aria-label="Gain one hit point">+</button></div></div><div class="hpbar"><div class="hpfill" id="hpFill"></div></div><div class="temp-row"><span>Temporary HP</span><input class="tiny-input" id="tempHp" type="number" min="0" value="0"></div></div>
+      </section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Raw talent</div><h2>Abilities</h2></div></div><div class="abilities" id="abilities"></div></section>
+      <section class="card card-pad">
+        <div class="section-head"><div><div class="kicker">Resist the danger</div><h2>Saving Throws</h2></div></div>
+        <div class="save-list">
+          <div class="save-row"><span><i></i> Strength</span><strong>−1</strong></div>
+          <div class="save-row proficient"><span><i></i> Dexterity <small>PROF</small></span><strong>+4</strong></div>
+          <div class="save-row"><span><i></i> Constitution</span><strong>+0</strong></div>
+          <div class="save-row"><span><i></i> Intelligence</span><strong>+2</strong></div>
+          <div class="save-row"><span><i></i> Wisdom</span><strong>+0</strong></div>
+          <div class="save-row proficient"><span><i></i> Charisma <small>PROF</small></span><strong>+5</strong></div>
+        </div>
+        <div class="advantage-note"><b>Magic Resistance</b><span>Advantage on every saving throw against spells and other magical effects.</span></div>
+      </section>
+      <section class="card card-pad distributed-actions">
+        <div class="section-head"><div><div class="kicker">On your turn</div><h2>Actions</h2></div></div>
+        <div class="action-list compact-actions">
+          <article class="action"><div class="action-top"><span class="badge">Attack</span><h3>Ram</h3></div><p><span class="formula">+1 to hit · 1d6−1 bludgeoning</span><br>Melee, 5 ft, one target.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Feature</span><h3>Bestow a Tale</h3></div><p>Give your held tale to a creature within <b>30 ft</b>, including yourself. The tale is then released.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Magic</span><h3>Cast a Spell</h3></div><p>Check the spellbook for each spell’s casting time.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Core</span><h3>Other Actions</h3></div><p>Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object.</p></article>
+        </div>
+      </section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Ability checks</div><h2>Skills</h2></div></div><div class="skill-list" id="skills"></div><div class="legend">● proficient &nbsp; ◉ expertise</div></section>
+    </aside>
+
+    <section class="stack">
+      <section class="card card-pad">
+        <div class="section-head"><div><div class="kicker">Short-rest resources</div><h2>Rhythm of the day</h2></div><span style="font-size:.7rem;color:var(--muted)">tap to spend</span></div>
+        <div class="resources" id="resources"></div><div class="rests"><button class="restbtn" id="shortRest">Short rest</button><button class="restbtn" id="longRest">Long rest</button></div>
+      </section>
+      <section class="card card-pad action-section original-actions">
+        <div class="section-head"><div><div class="kicker">On your turn</div><h2>Actions</h2></div></div>
+        <div class="action-columns">
+          <article class="action"><div class="action-top"><span class="badge">Attack</span><h3>Ram</h3></div><p><span class="formula">+1 to hit · 1d6−1 bludgeoning</span><br>Melee, 5 ft, one target.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Feature</span><h3>Bestow a Tale</h3></div><p>Give your held tale to a creature within <b>30 ft</b>, including yourself. The tale is then released.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Magic</span><h3>Cast a Spell</h3></div><p>Most spells use an action. Check the spellbook for each spell’s casting time.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Core</span><h3>Other Actions</h3></div><p>Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object.</p></article>
+        </div>
+      </section>
+      <section class="card card-pad action-section original-actions">
+        <div class="section-head"><div><div class="kicker">Swift choices</div><h2>Bonus Actions & Reactions</h2></div></div>
+        <div class="action-list compact-actions">
+          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>Creature other than you within <b>60 ft</b> that can hear you. Lasts 10 minutes; add to one ability check, attack, or save.</p></article>
+          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Draw a Tale</h3></div><p>Hold your Spiritual Focus, spend one Bardic Inspiration, and roll on the d6 Spirit Tales table.</p></article>
+          <article class="action"><div class="action-top"><span class="badge react">Reaction</span><h3>Opportunity Attack</h3></div><p>When a visible creature leaves your reach, make one melee attack. Forced movement and teleportation do not trigger it.</p></article>
+        </div>
+      </section>
+      <section class="card card-pad">
+        <div class="section-head"><div><div class="kicker">Charisma is your spellcasting ability</div><h2>Spellcasting</h2></div></div>
+        <div class="spellcasting-stats">
+          <div class="casting-stat"><span>Save DC</span><strong>13</strong><small>8 + PB + CHA</small></div>
+          <div class="casting-stat"><span>Spell Attack</span><strong>+5</strong><small>PB + CHA</small></div>
+          <div class="casting-stat"><span>Ability</span><strong>CHA</strong><small>modifier +3</small></div>
+          <div class="casting-stat"><span>Spells Known</span><strong>6</strong><small>plus cantrips</small></div>
+        </div>
+        <div class="casting-notes"><span><b>Focus</b> Spiritual Focus</span><span><b>Concentration</b> One spell at a time</span><span><b>Concentration save</b> CON +0 · DC 10 or half damage</span><span><b>Rituals</b> Known bard spells tagged ritual</span></div>
+        <div class="tabs"><button class="tab active" data-tab="combat">Combat</button><button class="tab" data-tab="spells">Spells</button><button class="tab" data-tab="features">Features</button></div>
+        <div class="tabpane active" id="combat">
+          <div class="action-list">
+            <article class="action"><div class="action-top"><span class="badge">Action</span><h3>Ram</h3></div><p><span class="formula">+1 to hit · 1d6−1 bludgeoning</span> · A straightforward melee strike with your horns.</p></article>
+            <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>One creature other than you within 60 ft that can hear you adds the die to one ability check, attack roll, or save within 10 minutes. Decide after the d20, before the outcome.</p></article>
+            <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Tales from Beyond</h3></div><p>While holding your focus, spend one Inspiration and roll a d6 tale. Hold one tale; bestow it later as an action on a creature within 30 ft.</p></article>
+            <article class="action"><div class="action-top"><span class="badge react">Reaction</span><h3>Opportunity attack</h3></div><p>When a creature you can see leaves your reach, make one melee attack. Forced movement and teleportation do not trigger it.</p></article>
+          </div>
+        </div>
+        <div class="tabpane" id="spells"><div class="spell-grid" id="spellGrid"></div></div>
+      </section>
+      <section class="card card-pad">
+        <div class="section-head"><div><div class="kicker">Always available</div><h2>Traits & Features</h2></div></div>
+        <div class="tabpane" id="features">
+          <details open><summary>Jack of All Trades <span class="feature-tag">Bard 2</span></summary><p>Add half your proficiency bonus (+1) to ability checks that do not already include your proficiency bonus. This includes initiative.</p></details>
+          <details><summary>Song of Rest <span class="feature-tag">d6</span></summary><p>At the end of a short rest, you or any friendly creature who hears your performance regains an extra 1d6 HP if they spent one or more Hit Dice.</p></details>
+          <details><summary>Guiding Whispers <span class="feature-tag">Spirits 3</span></summary><p>You know Guidance without it counting against cantrips known, and its range is 60 ft for you.</p></details>
+          <details><summary>Spiritual Focus <span class="feature-tag">Spirits 3</span></summary><p>Use a candle, crystal ball, skull, spirit board, or tarokka deck as the spellcasting focus for your bard spells.</p></details>
+          <details><summary>Magic Resistance <span class="feature-tag">Satyr</span></summary><p>You have advantage on saving throws against spells and other magical effects.</p></details>
+          <details><summary>Mirthful Leaps <span class="feature-tag">Satyr</span></summary><p>When making a long or high jump, roll a d8 and add the number rolled in feet—even from a standing jump.</p></details>
+          <details><summary>Entertainer Routine <span class="feature-tag">Background</span></summary><p>You can usually find a place to perform and receive free lodging and food of a modest or comfortable standard, as long as you perform each night.</p></details>
+        </div>
+      </section>
+      <section class="card card-pad">
+        <div class="section-head"><div><div class="kicker">The veil answers</div><h2>Tales from Beyond</h2></div><span style="font-size:.7rem;color:var(--muted)">d6 at this level</span></div>
+        <div class="tale-result" id="taleResult"></div><div class="tale-controls"><button class="primary" id="drawTale">Spend & draw tale</button><button class="secondary" id="clearTale">Release held tale</button></div><div class="held">A held tale fades when bestowed or when you finish any rest.</div>
+      </section>
+    </section>
+
+    <aside class="stack right">
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Status</div><h2>Conditions</h2></div></div><div class="condition-grid" id="conditions"></div><div class="death"><span>Death saves</span><span>✓ <span class="pips" id="successes"></span> &nbsp; ✕ <span class="pips" id="failures"></span></span></div></section>
+      <section class="card card-pad distributed-actions">
+        <div class="section-head"><div><div class="kicker">Swift choices</div><h2>Bonus & Reaction</h2></div></div>
+        <div class="action-list compact-actions">
+          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>Another creature within <b>60 ft</b> that can hear you. Lasts 10 minutes; add to one ability check, attack, or save.</p></article>
+          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Draw a Tale</h3></div><p>Hold your Spiritual Focus, spend one Bardic Inspiration, and roll on the d6 Spirit Tales table.</p></article>
+          <article class="action"><div class="action-top"><span class="badge react">Reaction</span><h3>Opportunity Attack</h3></div><p>When a visible creature leaves your reach, make one melee attack. Forced movement and teleportation do not trigger it.</p></article>
+        </div>
+      </section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Carried</div><h2>Inventory</h2></div></div><div class="inventory"><div class="item"><span>Leather armor</span><span>10 lb</span></div><div class="item"><span>Lute / spiritual focus</span><span>2 lb</span></div><div class="item"><span>Costume clothes</span><span>4 lb</span></div><div class="item"><span>Torch</span><span>1 lb</span></div><div class="item"><span>Elira’s Ring</span><span>keepsake</span></div></div></section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Table notes</div><h2>Session journal</h2></div></div><textarea id="notes" placeholder="Names, clues, promises, suspicious doors…"></textarea></section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Fast reminders</div><h2>Play Lysander well</h2></div></div><div class="action-list"><article class="action"><h3>Before the roll</h3><p>Offer <b>Guidance at 60 ft</b>. Preserve Inspiration if a Tale could solve the scene.</p></article><article class="action"><h3>Opening a fight</h3><p><b>Dissonant Whispers</b> can force movement and provoke allies’ opportunity attacks. <b>Heroism</b> stabilizes a frontliner.</p></article><article class="action"><h3>Someone drops</h3><p><b>Healing Word</b> reaches 60 ft as a bonus action, leaving your action free.</p></article><article class="action"><h3>Rest checklist</h3><p>Song of Rest adds <b>1d6</b> healing if a Hit Die was spent. Bardic Inspiration and Tales reset on a short rest; spell slots on a long rest.</p></article></div></section>
+    </aside>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+  const KEY='lysander-session-v1';
+  const defaults={hp:18,tempHp:0,slots1:0,slots2:2,inspiration:1,hitDice:3,conditions:[],successes:0,failures:0,notes:'',tale:null};
+  let state={...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')};
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const abilities=[['STR',8,-1,-1],['DEX',14,2,4],['CON',11,0,0],['INT',14,2,2],['WIS',10,0,0],['CHA',17,3,5]];
+  const skills=[['Athletics','Str',0,''],['Acrobatics','Dex',4,'p'],['Sleight of Hand','Dex',4,'p'],['Stealth','Dex',3,''],['Arcana','Int',3,''],['History','Int',3,''],['Investigation','Int',6,'e'],['Nature','Int',3,''],['Religion','Int',3,''],['Animal Handling','Wis',1,''],['Insight','Wis',4,'e'],['Medicine','Wis',1,''],['Perception','Wis',1,''],['Survival','Wis',1,''],['Deception','Cha',4,''],['Intimidation','Cha',4,''],['Performance','Cha',5,'p'],['Persuasion','Cha',5,'p']];
+  const spells=[
+    {n:'Guidance',l:'Cantrip',m:'Action · 60 ft · V,S · Concentration, 1 min',c:1,d:'A willing creature adds 1d4 to one ability check of its choice, before or after rolling. The spell then ends.'},
+    {n:'Vicious Mockery',l:'Cantrip',m:'Action · 60 ft · V · Instant',d:'Wisdom save. On a failure: 1d4 psychic damage and disadvantage on the next attack roll made before the end of its next turn.'},
+    {n:'Healing Word',l:'1st',m:'Bonus action · 60 ft · V · Instant',d:'A creature you can see regains 1d4 + 3 HP. At higher levels, add 1d4 per slot above 1st.'},
+    {n:'Dissonant Whispers',l:'1st',m:'Action · 60 ft · V · Instant',d:'Wisdom save. 3d6 psychic damage and the target must immediately use its reaction to move away; half damage and no move on success.'},
+    {n:'Heroism',l:'1st',m:'Action · Touch · V,S · Concentration, 1 min',c:1,d:'A willing creature is immune to frightened and gains 3 temporary HP at the start of each of its turns.'},
+    {n:'Disguise Self',l:'1st',m:'Action · Self · V,S · 1 hour',d:'Change your appearance, clothing, armor, weapons, and belongings. Physical inspection reveals the illusion; Investigation vs spell DC 13.'},
+    {n:'Sleep',l:'1st',m:'Action · 90 ft · V,S,M · 1 min',d:'Roll 5d8. Creatures in a 20-ft-radius sphere fall unconscious in ascending current-HP order until the total is spent. Undead and charm-immune creatures are unaffected.'},
+    {n:'Borrowed Knowledge',l:'2nd',m:'Action · Self · V,S,M · Concentration, 1 hour',c:1,d:'Choose one skill in which you lack proficiency. You gain proficiency in it for the duration.'}
+  ];
+  const tales=[
+    ['Clever Animal','For 10 minutes, the target adds 1d6 to Intelligence, Wisdom, and Charisma checks, after seeing the d20 roll.'],
+    ['Renowned Duelist','Make a melee spell attack against the target. On a hit, deal 2d6 + 3 force damage.'],
+    ['Beloved Friends','The target and another creature of its choice within 5 ft each gain 1d6 + 3 temporary HP.'],
+    ['Runaway','The target can immediately use its reaction to teleport up to 30 ft to an unoccupied space it can see.'],
+    ['Avenger','A creature the target can see within 30 ft takes 1d6 force damage; creatures of the target’s choice within 5 ft of it take the same.'],
+    ['Traveler','For 10 minutes, the target gains +10 ft walking speed and +1 AC.']
+  ];
+  const conds=['Blinded','Charmed','Deafened','Frightened','Grappled','Incapacitated','Invisible','Paralyzed','Poisoned','Prone','Restrained','Stunned','Unconscious','Concentrating'];
+  function signed(n){return n>=0?'+'+n:String(n)}
+  function save(msg='Saved locally'){localStorage.setItem(KEY,JSON.stringify(state));$('#saveState').textContent=msg;setTimeout(()=>$('#saveState').textContent='Saved locally',900)}
+  function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+  function render(){
+    $('#hp').textContent=state.hp;$('#hpFill').style.width=Math.max(0,Math.min(100,state.hp/18*100))+'%';$('#tempHp').value=state.tempHp;$('#notes').value=state.notes;
+    $('#abilities').innerHTML=abilities.map(a=>`<div class="ability"><small>${a[0]}</small><strong>${signed(a[2])}</strong><span>${a[1]} · save ${signed(a[3])}</span></div>`).join('');
+    $('#skills').innerHTML=skills.map(s=>`<div class="skill"><i class="dot ${s[3]}"></i><span>${s[0]} <em>${s[1]}</em></span><b>${signed(s[2])}</b></div>`).join('');
+    const rs=[['inspiration','Bardic Inspiration','d6 · short or long rest',3,'pink'],['slots1','1st-level spell slots','long rest',4,'gold'],['slots2','2nd-level spell slots','long rest',2,'gold'],['hitDice','Hit Dice','d8 · regain half on long rest',3,'']];
+    $('#resources').innerHTML=rs.map(r=>`<div class="resource"><div class="resource-top"><b>${r[1]}</b><span>${state[r[0]]} / ${r[3]}</span></div><div class="pips">${Array.from({length:r[3]},(_,i)=>`<button class="pip ${r[4]} ${i<state[r[0]]?'on':''}" data-resource="${r[0]}" data-value="${i+1}" aria-label="Set ${r[1]} to ${i+1}"></button>`).join('')}</div><div class="recovery">${r[2]}</div></div>`).join('');
+    $('#spellGrid').innerHTML=spells.map((s,i)=>`<article class="spell"><div class="spell-head"><h3 class="${s.c?'concentration':''}">${s.n}</h3><span class="spell-level">${s.l}</span></div><div class="spell-meta">${s.m}</div><p>${s.d}</p>${s.l!=='Cantrip'?`<button class="cast-btn" data-cast="${s.l==='1st'?'slots1':'slots2'}" ${state[s.l==='1st'?'slots1':'slots2']<1?'disabled':''}>Cast · spend ${s.l} slot</button>`:''}</article>`).join('');
+    $('#conditions').innerHTML=conds.map(c=>`<button class="condition ${state.conditions.includes(c)?'active':''}" data-condition="${c}">${c}</button>`).join('');
+    $('#successes').innerHTML=Array.from({length:3},(_,i)=>`<button class="pip success ${i<state.successes?'on':''}" data-death="successes" data-value="${i+1}"></button>`).join('');
+    $('#failures').innerHTML=Array.from({length:3},(_,i)=>`<button class="pip fail ${i<state.failures?'on':''}" data-death="failures" data-value="${i+1}"></button>`).join('');
+    $('#taleResult').innerHTML=state.tale===null?'<h3>No tale held</h3><p>Spend a Bardic Inspiration die to invite a spirit’s story. You can hold only one tale at a time.</p>':`<span class="roll">${state.tale+1}</span><h3>${tales[state.tale][0]}</h3><p>${tales[state.tale][1]}</p>`;
+  }
+  document.addEventListener('click',e=>{
+    const hp=e.target.dataset.hp;if(hp){state.hp=Math.max(0,Math.min(18,state.hp+Number(hp)));save();render()}
+    if(e.target.dataset.resource){const k=e.target.dataset.resource,v=Number(e.target.dataset.value);state[k]=state[k]===v?v-1:v;save();render()}
+    if(e.target.dataset.cast){const k=e.target.dataset.cast;if(state[k]>0){state[k]--;save();render();toast('Spell slot spent')}}
+    if(e.target.dataset.condition){const c=e.target.dataset.condition;state.conditions=state.conditions.includes(c)?state.conditions.filter(x=>x!==c):[...state.conditions,c];save();render()}
+    if(e.target.dataset.death){const k=e.target.dataset.death,v=Number(e.target.dataset.value);state[k]=state[k]===v?v-1:v;save();render()}
+    if(e.target.dataset.tab){$$('.tab').forEach(x=>x.classList.toggle('active',x===e.target));$$('.tabpane').forEach(x=>x.classList.toggle('active',x.id===e.target.dataset.tab))}
+  });
+  $('#tempHp').addEventListener('change',e=>{state.tempHp=Math.max(0,Number(e.target.value)||0);save()});
+  $('#notes').addEventListener('input',e=>{state.notes=e.target.value;save('Saving…')});
+  $('#shortRest').onclick=()=>{state.inspiration=3;state.tale=null;toast('Inspiration restored · tale released');save();render()};
+  $('#longRest').onclick=()=>{state={...state,hp:18,tempHp:0,slots1:4,slots2:2,inspiration:3,hitDice:Math.min(3,state.hitDice+2),conditions:state.conditions.filter(c=>c!=='Concentrating'),successes:0,failures:0,tale:null};toast('Long rest complete');save();render()};
+  $('#drawTale').onclick=()=>{if(state.tale!==null)return toast('Release your held tale first');if(state.inspiration<1)return toast('No Bardic Inspiration remaining');state.inspiration--;state.tale=Math.floor(Math.random()*6);save();render();toast('A spirit answers…')};
+  $('#clearTale').onclick=()=>{state.tale=null;save();render()};
+  $('#resetBtn').onclick=()=>{if(confirm('Reset all session state and notes to the values in Lysander.md?')){state={...defaults};save();render();toast('Session reset')}};
+  render();
+})();
+</script>
+</body>
+</html>
