@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171b1c">
+  <title>Choose Your Character</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+    :root{--ink:#f2ead9;--muted:#a9aaa3;--gold:#c49a50;--line:rgba(215,188,130,.25)}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:#171b1c;color:var(--ink);font-family:Inter,system-ui,sans-serif;background-image:radial-gradient(circle at 50% -10%,rgba(196,154,80,.18),transparent 38%),linear-gradient(135deg,#1e2626,#121516 70%);display:grid;place-items:center;padding:40px 24px}
+    main{width:min(1180px,100%)}
+    header{text-align:center;margin-bottom:38px}
+    .eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.28em;color:var(--gold);font-weight:600}
+    h1{font:700 clamp(3rem,7vw,5.8rem)/.9 "Cormorant Garamond",serif;margin:12px 0 10px;letter-spacing:-.045em}
+    header p{margin:0;color:var(--muted);font-size:.9rem}
+    .rule{display:flex;align-items:center;gap:12px;width:190px;margin:22px auto 0;color:var(--gold)}
+    .rule:before,.rule:after{content:"";height:1px;background:var(--line);flex:1}
+    .characters{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .character{position:relative;height:470px;overflow:hidden;border:1px solid var(--line);color:white;text-decoration:none;background:#252b2b;box-shadow:0 16px 45px rgba(0,0,0,.3);transition:transform .25s,border-color .25s,box-shadow .25s}
+    .character:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,11,12,.98) 0%,rgba(8,11,12,.72) 24%,transparent 60%),linear-gradient(180deg,rgba(255,255,255,.06),transparent 20%)}
+    .character img{width:100%;height:100%;object-fit:cover;transition:transform .45s,filter .3s;filter:saturate(.78) contrast(1.04)}
+    .character:hover,.character:focus-visible{transform:translateY(-7px);border-color:var(--gold);box-shadow:0 24px 60px rgba(0,0,0,.48)}
+    .character:hover img,.character:focus-visible img{transform:scale(1.035);filter:saturate(1) contrast(1.04)}
+    .character:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+    .info{position:absolute;z-index:2;left:22px;right:22px;bottom:20px}
+    .info small{display:block;color:#d0aa64;text-transform:uppercase;letter-spacing:.15em;font-size:.57rem;font-weight:600;margin-bottom:3px}
+    .info h2{font:700 2.15rem/1 "Cormorant Garamond",serif;margin:0 0 6px}
+    .info p{font-size:.7rem;color:#c4c7c3;margin:0}
+    .arrow{position:absolute;right:0;bottom:4px;color:var(--gold);font-size:1.2rem;transition:translate .2s}
+    .character:hover .arrow{translate:4px 0}
+    footer{text-align:center;color:#777d79;font-size:.66rem;margin-top:28px;letter-spacing:.06em}
+    @media(max-width:900px){.characters{grid-template-columns:repeat(2,1fr)}.character{height:400px}}
+    @media(max-width:520px){body{padding:28px 14px}.characters{grid-template-columns:1fr}.character{height:370px}header{margin-bottom:28px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">The Adventuring Company</div>
+      <h1>Choose Your Character</h1>
+      <p>Open a folio to begin the session.</p>
+      <div class="rule">◆</div>
+    </header>
+    <section class="characters" aria-label="Characters">
+      <a class="character" href="Lysander/">
+        <img src="Lysander/Lysander.png" alt="Lysander playing his lute">
+        <div class="info"><small>College of Spirits · Bard 3</small><h2>Lysander</h2><p>Satyr · Entertainer</p><span class="arrow">→</span></div>
+      </a>
+      <a class="character" href="Thud/">
+        <img src="Thud/Thud.png" alt="Thud carrying his weapon">
+        <div class="info"><small>Path of the Berserker · Barbarian 3</small><h2>Thud</h2><p>Half-Orc · Haunted One</p><span class="arrow">→</span></div>
+      </a>
+      <a class="character" href="Demian/">
+        <img src="Demian/Demian.png" alt="Demian in dark noble attire">
+        <div class="info"><small>The Undead · Warlock 3</small><h2>Demian</h2><p>Human · Noble</p><span class="arrow">→</span></div>
+      </a>
+      <a class="character" href="Desmond/">
+        <img src="Desmond/Desmond.png" alt="Desmond in dark leather">
+        <div class="info"><small>Inquisitive · Rogue 3</small><h2>Desmond</h2><p>Half-Elf · Investigator</p><span class="arrow">→</span></div>
+      </a>
+    </section>
+    <footer>Four folios · session state saved locally in your browser</footer>
+  </main>
+</body>
+</html>
