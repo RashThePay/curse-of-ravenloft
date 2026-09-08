@@ -112,6 +112,8 @@ Constitution
 Passive Perception
 12
 
+Gnarled wooden staff (4 lbs)
+  Quarterstaff and warlock spellcasting focus.
 Leather armor (10 lbs)
 Clothes, fine (6 lbs)
 Book (5 lbs)
@@ -137,8 +139,8 @@ Pact of the Chain
 Find Familiar (1st)
 
 Attacks
-No attacks here yet.
-Try adding some weapons to your gear.
+Gnarled staff
+Gnarled staff (two handed)
 Cantrip
 Toll the Dead
 Eldritch Blast

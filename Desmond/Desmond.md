@@ -115,6 +115,9 @@ Passive Perception
 14
 
 Dagger (1 lbs)
+Dagger (1 lbs)
+Rusty light crossbow (5 lbs)
+Bolts (20) (1.5 lbs)
 Leather armor (10 lbs)
 Lumina Aeterna (0.5 lbs)
   A mysterious elf gave it to you as payment when you helped him track down a tiefling. 
@@ -135,6 +138,8 @@ Clothes, common (3 lbs)
 
 Attacks
 Dagger
+Dagger (off hand)
+Rusty light crossbow
 Lumina Aeterna uses
 3 / 3
 Lumina Aeterna

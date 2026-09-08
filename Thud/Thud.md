@@ -115,11 +115,16 @@ Passive Perception
 12
 
 Longsword (3 lbs)
+Battleaxe (4 lbs)
+Iron gauntlet (1 lbs)
 Clothes, common (3 lbs)
 
 Attacks
 Longsword
 Longsword (two handed)
+Battleaxe
+Battleaxe (two handed)
+Iron gauntlet
 Rages
 2 / 3
 Rage
