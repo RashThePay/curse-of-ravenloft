@@ -76,32 +76,32 @@
     <aside class="stack">
       <section class="card card-pad">
         <div class="section-head"><div><div class="kicker">At a glance</div><h2>Combat</h2></div></div>
-        <div class="vitals"><div class="vital"><div class="n">13</div><div class="l">Armor</div></div><div class="vital"><div class="n">+3</div><div class="l">Initiative</div></div><div class="vital"><div class="n">35′</div><div class="l">Speed</div></div></div>
+        <div class="vitals"><div class="vital"><div class="n">13</div><div class="l">Armor</div></div><div class="vital" data-roll="1d20+3" role="button" tabindex="0"><div class="n">+3</div><div class="l">Initiative</div></div><div class="vital"><div class="n">35′</div><div class="l">Speed</div></div></div>
         <div class="hpbox"><div class="hp-line"><div><div class="kicker" style="color:#ffd977">Hit points</div><div><span class="hp-num" id="hp">18</span><span style="opacity:.65"> / 18</span></div></div><div class="hp-controls"><button class="round" data-hp="-1" aria-label="Lose one hit point">−</button><button class="round" data-hp="1" aria-label="Gain one hit point">+</button></div></div><div class="hpbar"><div class="hpfill" id="hpFill"></div></div><div class="temp-row"><span>Temporary HP</span><input class="tiny-input" id="tempHp" type="number" min="0" value="0"></div></div>
       </section>
-      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Raw talent</div><h2>Abilities</h2></div></div><div class="abilities" id="abilities"></div></section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Raw talent</div><h2>Abilities</h2></div><span style="font-size:.7rem;color:var(--muted)">tap to roll</span></div><div class="abilities" id="abilities"></div></section>
       <section class="card card-pad">
-        <div class="section-head"><div><div class="kicker">Resist the danger</div><h2>Saving Throws</h2></div></div>
+        <div class="section-head"><div><div class="kicker">Resist the danger</div><h2>Saving Throws</h2></div><span style="font-size:.7rem;color:var(--muted)">tap to roll</span></div>
         <div class="save-list">
-          <div class="save-row"><span><i></i> Strength</span><strong>−1</strong></div>
-          <div class="save-row proficient"><span><i></i> Dexterity <small>PROF</small></span><strong>+4</strong></div>
-          <div class="save-row"><span><i></i> Constitution</span><strong>+0</strong></div>
-          <div class="save-row"><span><i></i> Intelligence</span><strong>+2</strong></div>
-          <div class="save-row"><span><i></i> Wisdom</span><strong>+0</strong></div>
-          <div class="save-row proficient"><span><i></i> Charisma <small>PROF</small></span><strong>+5</strong></div>
+          <div class="save-row" data-roll="1d20-1 Strength" role="button" tabindex="0"><span><i></i> Strength</span><strong>−1</strong></div>
+          <div class="save-row proficient" data-roll="1d20+4 Dexterity" role="button" tabindex="0"><span><i></i> Dexterity <small>PROF</small></span><strong>+4</strong></div>
+          <div class="save-row" data-roll="1d20 Constitution" role="button" tabindex="0"><span><i></i> Constitution</span><strong>+0</strong></div>
+          <div class="save-row" data-roll="1d20+2 Intelligence" role="button" tabindex="0"><span><i></i> Intelligence</span><strong>+2</strong></div>
+          <div class="save-row" data-roll="1d20 Wisdom" role="button" tabindex="0"><span><i></i> Wisdom</span><strong>+0</strong></div>
+          <div class="save-row proficient" data-roll="1d20+5 Charisma" role="button" tabindex="0"><span><i></i> Charisma <small>PROF</small></span><strong>+5</strong></div>
         </div>
         <div class="advantage-note"><b>Magic Resistance</b><span>Advantage on every saving throw against spells and other magical effects.</span></div>
       </section>
       <section class="card card-pad distributed-actions">
         <div class="section-head"><div><div class="kicker">On your turn</div><h2>Actions</h2></div></div>
         <div class="action-list compact-actions">
-          <article class="action"><div class="action-top"><span class="badge">Attack</span><h3>Ram</h3></div><p><span class="formula">+1 to hit · 1d6−1 bludgeoning</span><br>Melee, 5 ft, one target.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Attack</span><h3>Ram</h3></div><p><span class="formula"><span data-roll="1d20+1" role="button" tabindex="0">+1 to hit</span> · <span data-roll="1d6-1" role="button" tabindex="0">1d6−1 bludgeoning</span></span><br>Melee, 5 ft, one target.</p></article>
           <article class="action"><div class="action-top"><span class="badge">Feature</span><h3>Bestow a Tale</h3></div><p>Give your held tale to a creature within <b>30 ft</b>, including yourself. The tale is then released.</p></article>
           <article class="action"><div class="action-top"><span class="badge">Magic</span><h3>Cast a Spell</h3></div><p>Check the spellbook for each spell’s casting time.</p></article>
           <article class="action"><div class="action-top"><span class="badge">Core</span><h3>Other Actions</h3></div><p>Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object.</p></article>
         </div>
       </section>
-      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Ability checks</div><h2>Skills</h2></div></div><div class="skill-list" id="skills"></div><div class="legend">● proficient &nbsp; ◉ expertise</div></section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Ability checks</div><h2>Skills</h2></div><span style="font-size:.7rem;color:var(--muted)">tap to roll</span></div><div class="skill-list" id="skills"></div><div class="legend">● proficient &nbsp; ◉ expertise</div></section>
     </aside>
 
     <section class="stack">
@@ -112,7 +112,7 @@
       <section class="card card-pad action-section original-actions">
         <div class="section-head"><div><div class="kicker">On your turn</div><h2>Actions</h2></div></div>
         <div class="action-columns">
-          <article class="action"><div class="action-top"><span class="badge">Attack</span><h3>Ram</h3></div><p><span class="formula">+1 to hit · 1d6−1 bludgeoning</span><br>Melee, 5 ft, one target.</p></article>
+          <article class="action"><div class="action-top"><span class="badge">Attack</span><h3>Ram</h3></div><p><span class="formula"><span data-roll="1d20+1" role="button" tabindex="0">+1 to hit</span> · <span data-roll="1d6-1" role="button" tabindex="0">1d6−1 bludgeoning</span></span><br>Melee, 5 ft, one target.</p></article>
           <article class="action"><div class="action-top"><span class="badge">Feature</span><h3>Bestow a Tale</h3></div><p>Give your held tale to a creature within <b>30 ft</b>, including yourself. The tale is then released.</p></article>
           <article class="action"><div class="action-top"><span class="badge">Magic</span><h3>Cast a Spell</h3></div><p>Most spells use an action. Check the spellbook for each spell’s casting time.</p></article>
           <article class="action"><div class="action-top"><span class="badge">Core</span><h3>Other Actions</h3></div><p>Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object.</p></article>
@@ -121,7 +121,7 @@
       <section class="card card-pad action-section original-actions">
         <div class="section-head"><div><div class="kicker">Swift choices</div><h2>Bonus Actions & Reactions</h2></div></div>
         <div class="action-list compact-actions">
-          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>Creature other than you within <b>60 ft</b> that can hear you. Lasts 10 minutes; add to one ability check, attack, or save.</p></article>
+          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>Creature other than you within <b>60 ft</b> that can hear you. Lasts 10 minutes; add <span data-roll="1d6" role="button" tabindex="0">1d6</span> to one ability check, attack, or save.</p></article>
           <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Draw a Tale</h3></div><p>Hold your Spiritual Focus, spend one Bardic Inspiration, and roll on the d6 Spirit Tales table.</p></article>
           <article class="action"><div class="action-top"><span class="badge react">Reaction</span><h3>Opportunity Attack</h3></div><p>When a visible creature leaves your reach, make one melee attack. Forced movement and teleportation do not trigger it.</p></article>
         </div>
@@ -130,7 +130,7 @@
         <div class="section-head"><div><div class="kicker">Charisma is your spellcasting ability</div><h2>Spellcasting</h2></div></div>
         <div class="spellcasting-stats">
           <div class="casting-stat"><span>Save DC</span><strong>13</strong><small>8 + PB + CHA</small></div>
-          <div class="casting-stat"><span>Spell Attack</span><strong>+5</strong><small>PB + CHA</small></div>
+          <div class="casting-stat"><span>Spell Attack</span><strong data-roll="1d20+5" role="button" tabindex="0">+5</strong><small>PB + CHA</small></div>
           <div class="casting-stat"><span>Ability</span><strong>CHA</strong><small>modifier +3</small></div>
           <div class="casting-stat"><span>Spells Known</span><strong>6</strong><small>plus cantrips</small></div>
         </div>
@@ -138,7 +138,7 @@
         <div class="tabs"><button class="tab active" data-tab="combat">Combat</button><button class="tab" data-tab="spells">Spells</button><button class="tab" data-tab="features">Features</button></div>
         <div class="tabpane active" id="combat">
           <div class="action-list">
-            <article class="action"><div class="action-top"><span class="badge">Action</span><h3>Ram</h3></div><p><span class="formula">+1 to hit · 1d6−1 bludgeoning</span> · A straightforward melee strike with your horns.</p></article>
+            <article class="action"><div class="action-top"><span class="badge">Action</span><h3>Ram</h3></div><p><span class="formula"><span data-roll="1d20+1" role="button" tabindex="0">+1 to hit</span> · <span data-roll="1d6-1" role="button" tabindex="0">1d6−1 bludgeoning</span></span> · A straightforward melee strike with your horns.</p></article>
             <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>One creature other than you within 60 ft that can hear you adds the die to one ability check, attack roll, or save within 10 minutes. Decide after the d20, before the outcome.</p></article>
             <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Tales from Beyond</h3></div><p>While holding your focus, spend one Inspiration and roll a d6 tale. Hold one tale; bestow it later as an action on a creature within 30 ft.</p></article>
             <article class="action"><div class="action-top"><span class="badge react">Reaction</span><h3>Opportunity attack</h3></div><p>When a creature you can see leaves your reach, make one melee attack. Forced movement and teleportation do not trigger it.</p></article>
@@ -165,11 +165,11 @@
     </section>
 
     <aside class="stack right">
-      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Status</div><h2>Conditions</h2></div></div><div class="condition-grid" id="conditions"></div><div class="death"><span>Death saves</span><span>✓ <span class="pips" id="successes"></span> &nbsp; ✕ <span class="pips" id="failures"></span></span></div></section>
+      <section class="card card-pad"><div class="section-head"><div><div class="kicker">Status</div><h2>Conditions</h2></div></div><div class="condition-grid" id="conditions"></div><div class="death"><span data-roll="1d20" role="button" tabindex="0">Death saves</span><span>✓ <span class="pips" id="successes"></span> &nbsp; ✕ <span class="pips" id="failures"></span></span></div></section>
       <section class="card card-pad distributed-actions">
         <div class="section-head"><div><div class="kicker">Swift choices</div><h2>Bonus & Reaction</h2></div></div>
         <div class="action-list compact-actions">
-          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>Another creature within <b>60 ft</b> that can hear you. Lasts 10 minutes; add to one ability check, attack, or save.</p></article>
+          <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Bardic Inspiration d6</h3></div><p>Another creature within <b>60 ft</b> that can hear you. Lasts 10 minutes; add <span data-roll="1d6" role="button" tabindex="0">1d6</span> to one ability check, attack, or save.</p></article>
           <article class="action"><div class="action-top"><span class="badge bonus">Bonus</span><h3>Draw a Tale</h3></div><p>Hold your Spiritual Focus, spend one Bardic Inspiration, and roll on the d6 Spirit Tales table.</p></article>
           <article class="action"><div class="action-top"><span class="badge react">Reaction</span><h3>Opportunity Attack</h3></div><p>When a visible creature leaves your reach, make one melee attack. Forced movement and teleportation do not trigger it.</p></article>
         </div>
@@ -181,6 +181,7 @@
   </main>
 </div>
 <div class="toast" id="toast"></div>
+<script src="../telegram-roll.js"></script>
 <script>
 (() => {
   const KEY='lysander-session-v1';
@@ -213,8 +214,8 @@
   function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
   function render(){
     $('#hp').textContent=state.hp;$('#hpFill').style.width=Math.max(0,Math.min(100,state.hp/18*100))+'%';$('#tempHp').value=state.tempHp;$('#notes').value=state.notes;
-    $('#abilities').innerHTML=abilities.map(a=>`<div class="ability"><small>${a[0]}</small><strong>${signed(a[2])}</strong><span>${a[1]} · save ${signed(a[3])}</span></div>`).join('');
-    $('#skills').innerHTML=skills.map(s=>`<div class="skill"><i class="dot ${s[3]}"></i><span>${s[0]} <em>${s[1]}</em></span><b>${signed(s[2])}</b></div>`).join('');
+    $('#abilities').innerHTML=abilities.map(a=>`<div class="ability" data-roll="${d20(a[2],a[0])}" role="button" tabindex="0"><small>${a[0]}</small><strong>${signed(a[2])}</strong><span>${a[1]} · save ${signed(a[3])}</span></div>`).join('');
+    $('#skills').innerHTML=skills.map(s=>`<div class="skill" data-roll="${d20(s[2],s[0])}" role="button" tabindex="0"><i class="dot ${s[3]}"></i><span>${s[0]} <em>${s[1]}</em></span><b>${signed(s[2])}</b></div>`).join('');
     const rs=[['inspiration','Bardic Inspiration','d6 · short or long rest',3,'pink'],['slots1','1st-level spell slots','long rest',4,'gold'],['slots2','2nd-level spell slots','long rest',2,'gold'],['hitDice','Hit Dice','d8 · regain half on long rest',3,'']];
     $('#resources').innerHTML=rs.map(r=>`<div class="resource"><div class="resource-top"><b>${r[1]}</b><span>${state[r[0]]} / ${r[3]}</span></div><div class="pips">${Array.from({length:r[3]},(_,i)=>`<button class="pip ${r[4]} ${i<state[r[0]]?'on':''}" data-resource="${r[0]}" data-value="${i+1}" aria-label="Set ${r[1]} to ${i+1}"></button>`).join('')}</div><div class="recovery">${r[2]}</div></div>`).join('');
     $('#spellGrid').innerHTML=spells.map((s,i)=>`<article class="spell"><div class="spell-head"><h3 class="${s.c?'concentration':''}">${s.n}</h3><span class="spell-level">${s.l}</span></div><div class="spell-meta">${s.m}</div><p>${s.d}</p>${s.l!=='Cantrip'?`<button class="cast-btn" data-cast="${s.l==='1st'?'slots1':'slots2'}" ${state[s.l==='1st'?'slots1':'slots2']<1?'disabled':''}>Cast · spend ${s.l} slot</button>`:''}</article>`).join('');
