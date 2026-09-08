@@ -3,7 +3,7 @@ Class
 14
 Hit
 Points
-22 / 35
+35 / 35
 Str
 16
 Dex
@@ -46,7 +46,7 @@ Resources
 Hit dice (d12)
 3 / 3
 Rages
-2 / 3
+3 / 3
 Saving Throws
 Strength
 + 5
@@ -126,5 +126,5 @@ Battleaxe
 Battleaxe (two handed)
 Iron gauntlet
 Rages
-2 / 3
+3 / 3
 Rage
