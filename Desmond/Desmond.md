@@ -3,7 +3,7 @@ Class
 14
 Hit
 Points
-21 / 24
+24 / 24
 Str
 11
 Dex

@@ -47,11 +47,11 @@ Resources
 Hit dice (d8)
 3 / 3
 1st Level slots
-0 / 4
+4 / 4
 2nd Level slots
 2 / 2
 Bardic Inspiration uses
-1 / 3
+3 / 3
 Saving Throws
 Strength
 - 1
@@ -148,7 +148,7 @@ Cantrip
 Guidance
 Vicious Mockery
 1st Level Spells
-0 / 4
+4 / 4
 Dissonant Whispers
 Disguise Self
 Healing Word

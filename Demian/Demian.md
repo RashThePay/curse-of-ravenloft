@@ -42,7 +42,7 @@ Resources
 Hit dice (d8)
 3 / 3
 2nd Level slots
-1 / 2
+2 / 2
 Form of Dread uses
 2 / 2
 Saving Throws
@@ -145,7 +145,7 @@ Cantrip
 Toll the Dead
 Eldritch Blast
 2nd Level Spells
-1 / 2
+2 / 2
 Find Familiar
 Unseen Servant
 Hex
