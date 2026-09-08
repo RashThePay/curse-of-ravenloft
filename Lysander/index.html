@@ -184,9 +184,9 @@
 <script src="../telegram-roll.js"></script>
 <script>
 (() => {
-  const KEY='lysander-session-v1';
-  const defaults={hp:18,tempHp:0,slots1:0,slots2:2,inspiration:1,hitDice:3,conditions:[],successes:0,failures:0,notes:'',tale:null};
-  let state={...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')};
+  const KEY='lysander-session-v2';
+  const defaults={hp:18,tempHp:0,slots1:4,slots2:2,inspiration:3,hitDice:3,conditions:[],successes:0,failures:0,notes:'',tale:null};
+  let state=(k=>{const cur=localStorage.getItem(k);if(cur)return{...defaults,...JSON.parse(cur)};const old=JSON.parse(localStorage.getItem('lysander-session-v1')||'{}');return{...defaults,notes:old.notes||''}})(KEY);
   const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
   const abilities=[['STR',8,-1,-1],['DEX',14,2,4],['CON',11,0,0],['INT',14,2,2],['WIS',10,0,0],['CHA',17,3,5]];
   const skills=[['Athletics','Str',0,''],['Acrobatics','Dex',4,'p'],['Sleight of Hand','Dex',4,'p'],['Stealth','Dex',3,''],['Arcana','Int',3,''],['History','Int',3,''],['Investigation','Int',6,'e'],['Nature','Int',3,''],['Religion','Int',3,''],['Animal Handling','Wis',1,''],['Insight','Wis',4,'e'],['Medicine','Wis',1,''],['Perception','Wis',1,''],['Survival','Wis',1,''],['Deception','Cha',4,''],['Intimidation','Cha',4,''],['Performance','Cha',5,'p'],['Persuasion','Cha',5,'p']];
