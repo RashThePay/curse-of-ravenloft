@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171b1c">
+  <title>Level 4 · What Changes</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+    :root{--ink:#f2ead9;--muted:#a9aaa3;--gold:#c49a50;--line:rgba(215,188,130,.25);--paper:#1c2222;--card:#252b2b}
+    *{box-sizing:border-box}
+    body{margin:0;background:#171b1c;color:var(--ink);font-family:Inter,system-ui,sans-serif;background-image:radial-gradient(circle at 50% -10%,rgba(196,154,80,.18),transparent 38%),linear-gradient(135deg,#1e2626,#121516 70%);line-height:1.55}
+    a{color:var(--gold);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:min(980px,100%);margin:0 auto;padding:40px 24px 80px}
+    .eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.28em;color:var(--gold);font-weight:600}
+    h1{font:700 clamp(2.8rem,7vw,5.2rem)/.9 "Cormorant Garamond",serif;margin:12px 0 12px;letter-spacing:-.04em}
+    h2{font:700 2rem/1.1 "Cormorant Garamond",serif;margin:0 0 8px}
+    h3{font:700 1.2rem "Cormorant Garamond",serif;margin:0 0 8px}
+    .lede{color:var(--muted);max-width:42rem}
+    .rule{display:flex;align-items:center;gap:12px;width:190px;margin:22px 0 0;color:var(--gold)}
+    .rule:before,.rule:after{content:"";height:1px;background:var(--line);flex:1}
+    nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 8px}
+    nav.jump a{border:1px solid var(--line);padding:7px 12px;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+    nav.jump a:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
+    .back{display:inline-block;margin-bottom:18px;font-size:.78rem;font-weight:600}
+    .grid{display:grid;gap:16px;margin-top:22px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);padding:22px 22px 20px;box-shadow:0 16px 45px rgba(0,0,0,.28)}
+    .card p{margin:0 0 10px;color:#d8d4c8;font-size:.92rem}
+    .card p:last-child{margin-bottom:0}
+    .kicker{font-size:.62rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:700;margin-bottom:6px}
+    .auto{border-left:3px solid #6f9a74}
+    .decide{border-left:3px solid var(--gold)}
+    .same{border-left:3px solid #7d8380}
+    ul{margin:8px 0 0;padding-left:1.15rem;color:#d8d4c8}
+    li{margin:6px 0;font-size:.9rem}
+    .scores{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:12px 0}
+    .score{text-align:center;border:1px solid var(--line);padding:8px 4px}
+    .score b{display:block;font:700 1.25rem "Cormorant Garamond",serif}
+    .score small{display:block;color:var(--muted);font-size:.58rem;letter-spacing:.08em;font-weight:700}
+    .odd{border-color:var(--gold)}
+    .note{font-size:.8rem;color:var(--muted);margin-top:10px}
+    .char-head{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:14px}
+    .char-head a{font-size:.75rem;font-weight:700}
+    .tag{display:inline-block;margin-right:6px;padding:3px 7px;border:1px solid var(--line);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+    footer{margin-top:36px;color:#777d79;font-size:.7rem;letter-spacing:.05em}
+    @media(max-width:760px){.split{grid-template-columns:1fr}.scores{grid-template-columns:repeat(3,1fr)}.wrap{padding:28px 14px 60px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="./">← Back to the company</a>
+    <div class="eyebrow">Curse of Ravenloft · 2014 fifth edition</div>
+    <h1>The company is 4th level.</h1>
+    <p class="lede">Nobody gets a new subclass trick at this step. Everyone gets tougher, and everyone has to choose how they grow. The sheets stay at their current numbers until those choices are in.</p>
+    <div class="rule">◆</div>
+    <nav class="jump" aria-label="Jump to a character">
+      <a href="#shared">Shared rules</a>
+      <a href="#lysander">Lysander</a>
+      <a href="#thud">Thud</a>
+      <a href="#demian">Demian</a>
+      <a href="#desmond">Desmond</a>
+    </nav>
+
+    <section id="shared">
+      <div class="grid">
+        <article class="card auto">
+          <div class="kicker">Automatic · no player input</div>
+          <h2>What changes for everyone</h2>
+          <ul>
+            <li><b>Level 4</b> on the folio. Proficiency bonus stays <b>+2</b>.</li>
+            <li><b>One more Hit Die</b> of their class (Desmond and the casters: d8; Thud: d12).</li>
+            <li><b>Hit points.</b> This table has used the average so far, so the default is the average again. A player can still ask to roll instead.</li>
+            <li>No Extra Attack, no new Sneak Attack die, no extra Rage, no bigger Bardic Inspiration die, no new invocation, no proficiency bump. Those wait for later levels.</li>
+          </ul>
+        </article>
+        <article class="card decide">
+          <div class="kicker">Every player decides</div>
+          <h2>Ability Score Improvement or a feat</h2>
+          <p>Take one of these, not both:</p>
+          <ul>
+            <li><b>+2</b> to one ability score, or <b>+1</b> to two different scores. Cap is 20.</li>
+            <li><b>One feat</b>, if the table allows feats. A feat that raises an ability still counts as the whole choice.</li>
+          </ul>
+          <p>If Constitution goes up enough to raise the modifier, maximum and current HP also go up by <b>1 per character level</b> (so +4 right now), on top of the level-4 hit points.</p>
+          <p class="note">Staying in the current class is the expected path. Multiclassing instead of taking 4th level in that class is a table decision, and it would skip this ASI.</p>
+        </article>
+        <article class="card same">
+          <div class="kicker">Hit points · default averages</div>
+          <h2>If nobody rolls</h2>
+          <ul>
+            <li><b>Desmond</b> · d8 + 2 CON → <b>+7</b> · 24 → <b>31</b></li>
+            <li><b>Thud</b> · d12 + 3 CON → <b>+10</b> · 35 → <b>45</b></li>
+            <li><b>Lysander</b> · d8 + 0 CON → <b>+5</b> · 18 → <b>23</b></li>
+            <li><b>Demian</b> · d8 + 0 CON → <b>+5</b> · 18 → <b>23</b></li>
+          </ul>
+          <p class="note">To roll instead: Desmond 1d8+2, Thud 1d12+3, Lysander 1d8, Demian 1d8. Apply a Constitution bump after that if it raises the modifier.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="lysander" style="margin-top:42px">
+      <div class="char-head">
+        <div>
+          <div class="eyebrow">College of Spirits · Bard</div>
+          <h2>Lysander</h2>
+          <span class="tag">Satyr</span><span class="tag">Entertainer</span>
+        </div>
+        <a href="Lysander/">Open folio →</a>
+      </div>
+      <div class="scores">
+        <div class="score"><small>STR</small><b>8</b></div>
+        <div class="score"><small>DEX</small><b>14</b></div>
+        <div class="score odd"><small>CON</small><b>11</b></div>
+        <div class="score"><small>INT</small><b>14</b></div>
+        <div class="score"><small>WIS</small><b>10</b></div>
+        <div class="score odd"><small>CHA</small><b>17</b></div>
+      </div>
+      <div class="split">
+        <article class="card auto">
+          <div class="kicker">Automatic</div>
+          <h3>Write these in</h3>
+          <ul>
+            <li>Hit Dice <b>4 / 4</b>.</li>
+            <li>Hit points <b>23</b> if using the average.</li>
+            <li>Spell slots become <b>4 first-level</b> and <b>3 second-level</b> (was 4 / 2).</li>
+            <li>Spells known become <b>7</b>. Cantrips known become <b>3</b>, plus Guidance from Guiding Whispers.</li>
+          </ul>
+          <p>Inspiration is still a <b>d6</b>, three times per rest unless Charisma becomes 18. Tales from Beyond still use a d6. Song of Rest stays d6. Jack of All Trades stays +1. Spell DC and attack stay 13 / +5 unless Charisma rises.</p>
+        </article>
+        <article class="card decide">
+          <div class="kicker">Player decides</div>
+          <h3>Three required picks</h3>
+          <ul>
+            <li><b>ASI or feat.</b> The cleanest ASI is <b>Charisma 18 and Constitution 12</b>. That is +4 Bardic Inspiration uses, DC 14, spell attack +6, Healing Word and Heroism both scale with the new modifier, and +4 HP from the Constitution change (27 total if the average was used). +2 Charisma also works if he wants to leave Constitution odd. War Caster or Resilient (Constitution) are the usual feat answers to Barovia concentration checks.</li>
+            <li><b>One new bard cantrip.</b> Guidance already does not count. Strong fits: Minor Illusion, Mage Hand, Prestidigitation, Message, or Light.</li>
+            <li><b>One new bard spell</b> of 1st or 2nd level. He currently knows Disguise Self, Healing Word, Heroism, Dissonant Whispers, Sleep, and Borrowed Knowledge. Useful 2nd-level additions in this campaign: Suggestion, Invisibility, Lesser Restoration, Hold Person, Silence, Enhance Ability, or Calm Emotions.</li>
+          </ul>
+          <p>Optional when he levels: replace one known bard spell with another he can cast. If the table uses Tasha’s, Bardic Versatility can also swap one expertise or the class cantrip (not Guidance).</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="thud" style="margin-top:42px">
+      <div class="char-head">
+        <div>
+          <div class="eyebrow">Path of the Berserker · Barbarian</div>
+          <h2>Thud</h2>
+          <span class="tag">Half-Orc</span><span class="tag">Haunted One</span>
+        </div>
+        <a href="Thud/">Open folio →</a>
+      </div>
+      <div class="scores">
+        <div class="score"><small>STR</small><b>16</b></div>
+        <div class="score odd"><small>DEX</small><b>13</b></div>
+        <div class="score"><small>CON</small><b>16</b></div>
+        <div class="score"><small>INT</small><b>8</b></div>
+        <div class="score"><small>WIS</small><b>10</b></div>
+        <div class="score"><small>CHA</small><b>12</b></div>
+      </div>
+      <div class="split">
+        <article class="card auto">
+          <div class="kicker">Automatic</div>
+          <h3>Write these in</h3>
+          <ul>
+            <li>Hit Dice <b>4 / 4</b>.</li>
+            <li>Hit points <b>45</b> if using the average.</li>
+          </ul>
+          <p>Rage is still <b>3 / long rest</b> and still +2 weapon damage. Frenzy, Reckless Attack, Danger Sense, Unarmored Defense, and Relentless Endurance do not change. Extra Attack is 5th level.</p>
+        </article>
+        <article class="card decide">
+          <div class="kicker">Player decides</div>
+          <h3>One required pick</h3>
+          <ul>
+            <li><b>ASI or feat.</b> Strength 18 raises every attack and every Rage hit. Constitution 18 raises HP and Unarmored Defense from 14 to 15, and adds +4 HP from the modifier change (49 if the average was used). Dexterity is the only odd score; a +1 Dexterity split only matters if the other +1 finishes Constitution or Strength later.</li>
+            <li>Feat options that fit how he already fights: Great Weapon Master (two-handed sword or axe), Sentinel, Tough, or Resilient (Dexterity) if Danger Sense is not enough against the saves Barovia throws.</li>
+          </ul>
+          <p>No new spell, invocation, or path feature. The only other question is whether this table lets him roll the d12 instead of taking 10.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="demian" style="margin-top:42px">
+      <div class="char-head">
+        <div>
+          <div class="eyebrow">The Undead · Pact of the Chain · Warlock</div>
+          <h2>Demian</h2>
+          <span class="tag">Human</span><span class="tag">Noble</span>
+        </div>
+        <a href="Demian/">Open folio →</a>
+      </div>
+      <div class="scores">
+        <div class="score odd"><small>STR</small><b>9</b></div>
+        <div class="score odd"><small>DEX</small><b>13</b></div>
+        <div class="score odd"><small>CON</small><b>11</b></div>
+        <div class="score"><small>INT</small><b>14</b></div>
+        <div class="score odd"><small>WIS</small><b>15</b></div>
+        <div class="score"><small>CHA</small><b>16</b></div>
+      </div>
+      <div class="split">
+        <article class="card auto">
+          <div class="kicker">Automatic</div>
+          <h3>Write these in</h3>
+          <ul>
+            <li>Hit Dice <b>4 / 4</b>.</li>
+            <li>Hit points <b>23</b> if using the average.</li>
+            <li>Form of Dread temporary HP becomes <b>1d10+4</b> (warlock level). Uses stay 2. Frighten DC stays 13 unless Charisma rises.</li>
+            <li>Spells known become <b>5</b>. Cantrips known become <b>3</b>.</li>
+          </ul>
+          <p>Pact slots stay <b>two 2nd-level slots</b> on a short rest. Invocations stay Armor of Shadows plus the Chain boon. Eldritch Blast is still one beam. A third invocation and 3rd-level slots are 5th level.</p>
+        </article>
+        <article class="card decide">
+          <div class="kicker">Player decides</div>
+          <h3>Three required picks</h3>
+          <ul>
+            <li><b>ASI or feat.</b> +2 Charisma (18) is the clean warlock step: DC 14, +6 spell attacks, Hex and Form of Dread get harder to resist. He has several odd scores if he wants to split: Constitution 12 and Wisdom 16, or Constitution 12 and Dexterity 14 (Mage Armor becomes AC 15). War Caster, Resilient (Constitution), Fey Touched, or Shadow Touched are the feats that usually matter in Barovia.</li>
+            <li><b>One new warlock cantrip.</b> He has Eldritch Blast and Toll the Dead. Useful thirds: Mage Hand, Minor Illusion, Prestidigitation, or Chill Touch.</li>
+            <li><b>One new warlock spell</b> of 1st or 2nd level. He currently knows Hex, Hellish Rebuke, Unseen Servant, and Hold Person. Find Familiar does not count. Strong 2nd-level additions: Misty Step, Mirror Image, Invisibility, Suggestion, Darkness, or Shatter.</li>
+          </ul>
+          <p>Optional when he levels: replace one known warlock spell. If the table uses Tasha’s, Eldritch Versatility can swap a cantrip, the pact boon, or one invocation when he takes the ASI.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="desmond" style="margin-top:42px">
+      <div class="char-head">
+        <div>
+          <div class="eyebrow">Inquisitive · Rogue</div>
+          <h2>Desmond</h2>
+          <span class="tag">Half-Elf</span><span class="tag">Investigator</span>
+        </div>
+        <a href="Desmond/">Open folio →</a>
+      </div>
+      <div class="scores">
+        <div class="score odd"><small>STR</small><b>11</b></div>
+        <div class="score"><small>DEX</small><b>16</b></div>
+        <div class="score odd"><small>CON</small><b>15</b></div>
+        <div class="score"><small>INT</small><b>8</b></div>
+        <div class="score"><small>WIS</small><b>14</b></div>
+        <div class="score"><small>CHA</small><b>12</b></div>
+      </div>
+      <div class="split">
+        <article class="card auto">
+          <div class="kicker">Automatic</div>
+          <h3>Write these in</h3>
+          <ul>
+            <li>Hit Dice <b>4 / 4</b>.</li>
+            <li>Hit points <b>31</b> if using the average.</li>
+          </ul>
+          <p>Sneak Attack stays <b>2d6</b>. Cunning Action, Ear for Deceit, Eye for Detail, and Insightful Fighting do not change. Expertise does not expand again until 6th. Uncanny Dodge is 5th level.</p>
+        </article>
+        <article class="card decide">
+          <div class="kicker">Player decides</div>
+          <h3>One required pick</h3>
+          <ul>
+            <li><b>ASI or feat.</b> Dexterity 18 is the straightforward inquisitive step: attacks +6, AC 15, initiative +4, Stealth +8, Sleight of Hand +6. Constitution 16 plus Strength 12 spends the odd scores and adds +4 HP from the modifier (35 if the average was used). Dexterity 17 plus Constitution 16 is the split if he wants both offense and durability now.</li>
+            <li>Feat options that fit the investigator: Alert, Observant, Skill Expert, Mobile, or Lucky. Observant in particular plays into Eye for Detail and the case-work.</li>
+          </ul>
+          <p>No new skill, no new Sneak Attack die, no spell pick. The only other question is average HP versus 1d8+2.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>Automatic numbers can go on the sheets as soon as each player answers. Feats from Tasha’s are marked as table calls.</footer>
+  </div>
+</body>
+</html>

@@ -20,7 +20,7 @@ Cha
 Race
 Satyr
 Level
-3
+4
 Background
 Entertainer
 Experience
