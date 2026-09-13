@@ -28,7 +28,7 @@
     .toast{position:fixed;left:50%;bottom:25px;translate:-50% 20px;opacity:0;z-index:50;background:#132f37;color:white;border-radius:999px;padding:10px 16px;font-size:.75rem;box-shadow:var(--shadow);pointer-events:none;transition:.22s}.toast.show{opacity:1;translate:-50% 0}.print-only{display:none}
     @media(max-width:1150px){main{grid-template-columns:280px 1fr}.right{grid-column:1/-1;grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:45% 1fr}.portrait{width:52%}.hero-copy{padding-right:28px}}
     @media(max-width:760px){.hero{min-height:570px;display:block}.portrait{width:100%;height:100%;object-position:center 25%}.hero:after{background:linear-gradient(0deg,#12353e 10%,rgba(18,53,62,.86) 42%,transparent 75%)}.hero-copy{position:absolute;bottom:0;padding:24px}.hero h1{font-size:3.7rem}.motto{font-size:.95rem}.toolbar{padding:8px 12px}.save-state,.toolbar b{display:none}main{padding:12px;grid-template-columns:1fr}.right{grid-column:auto;grid-template-columns:1fr}.vitals{grid-template-columns:repeat(3,1fr)}}
-    @media print{body{background:white}.app{box-shadow:none}.hero{min-height:245px}.portrait{width:42%}.hero-copy{padding:28px}.toolbar,.hp-controls,.rests,.cast-btn,.tale-controls,.toast{display:none!important}main{padding:14px;grid-template-columns:27% 43% 30%;gap:10px}.card{box-shadow:none;border-radius:10px;break-inside:avoid}.card-pad{padding:12px}.right{grid-column:auto;display:grid}.spell p,details p,.action p{font-size:8pt}.print-only{display:block}}
+    @media print{body{background:white}.app{box-shadow:none}.hero{min-height:245px}.portrait{width:42%}.hero-copy{padding:28px}.toolbar,.level-pending,.hp-controls,.rests,.cast-btn,.tale-controls,.toast{display:none!important}main{padding:14px;grid-template-columns:27% 43% 30%;gap:10px}.card{box-shadow:none;border-radius:10px;break-inside:avoid}.card-pad{padding:12px}.right{grid-column:auto;display:grid}.spell p,details p,.action p{font-size:8pt}.print-only{display:block}}
   </style>
   <style id="character-sheet-treatment">
     /* A tactile character-sheet treatment: ink, parchment, ruled fields, quiet controls. */
@@ -64,14 +64,15 @@
   <header class="hero">
     <img class="portrait" src="./Lysander.png" alt="Lysander, a smiling satyr bard playing a lute">
     <div class="hero-copy">
-      <div class="eyebrow">College of Spirits · Level 3</div>
+      <div class="eyebrow">College of Spirits · Level 4</div>
       <h1>Lysander</h1>
       <div class="subtitle">Satyr Bard · Entertainer · Medium Fey</div>
       <div class="quickfacts"><span class="chip">35 ft speed</span><span class="chip">PB +2</span><span class="chip">Spell DC 13</span><span class="chip">Spell attack +5</span><span class="chip">Passive Perception 11</span></div>
       <p class="motto">Every room has a story. Some of its storytellers just happen to be dead.</p>
     </div>
   </header>
-  <nav class="toolbar"><b>Lysander’s traveling folio</b><span class="save-state" id="saveState">Saved locally</span><button class="toolbtn" onclick="window.print()">Print</button><button class="toolbtn" id="resetBtn">Reset session</button></nav>
+  <nav class="toolbar"><b>Lysander’s traveling folio</b><span class="save-state" id="saveState">Saved locally</span><a class="toolbtn" href="../level-4.html#lysander" style="text-decoration:none;display:inline-block">Level 4 choices</a><button class="toolbtn" onclick="window.print()">Print</button><button class="toolbtn" id="resetBtn">Reset session</button></nav>
+  <p class="level-pending" style="margin:0;padding:10px 37px;border-bottom:1px solid rgba(82,69,43,.18);font-size:.73rem;color:#5f5a4f">4th level is on the folio. Numbers are unchanged until you pick an ASI or feat, a new cantrip, and a new spell. <a href="../level-4.html#lysander">Read the choices</a>.</p>
   <main>
     <aside class="stack">
       <section class="card card-pad">

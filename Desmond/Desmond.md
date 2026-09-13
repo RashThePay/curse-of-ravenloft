@@ -19,7 +19,7 @@ Cha
 Race
 Half-Elf
 Level
-3
+4
 Background
 Investigator
 Experience

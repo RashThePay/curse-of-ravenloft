@@ -19,7 +19,7 @@ Cha
 Race
 Half-Orc
 Level
-3
+4
 Background
 Haunted One
 Experience
